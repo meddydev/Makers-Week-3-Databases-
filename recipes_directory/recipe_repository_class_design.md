@@ -121,11 +121,11 @@ class RecipeRepository
     # Returns an array of Recipe objects.
   end
 
-  # Gets a single record by its ID
+  # Gets a single recipe by its ID
   # One argument: the id (number)
   def find(id)
     # Executes the SQL query:
-    # SELECT id, name, cohort_name FROM recipes WHERE id = $1;
+    # SELECT * FROM recipes WHERE id = $1;
 
     # Returns a single Recipe object.
   end
@@ -142,34 +142,38 @@ These examples will later be encoded as RSpec tests.
 # EXAMPLES
 
 # 1
-# Get all students
+# Get all recipes
 
-repo = StudentRepository.new
+repo = RecipeRepository.new
 
-students = repo.all
+recipes = repo.all
 
-students.length # =>  2
+recipes.length # =>  3
 
-students[0].id # =>  1
-students[0].name # =>  'David'
-students[0].cohort_name # =>  'April 2022'
+recipes[0].id # =>  1
+recipes[0].name # =>  'Feta Pasta'
+recipes[0].average_cooking_time # =>  "45"
 
-students[1].id # =>  2
-students[1].name # =>  'Anna'
-students[1].cohort_name # =>  'May 2022'
+recipes[2].id # =>  3
+recipes[2].average_cooking_time # =>  'Honey Glazed Salmon'
+recipes[2].rating # =>  '5'
 
 # 2
-# Get a single student
+# Get a single recipe
 
-repo = StudentRepository.new
+repo = RecipeRepository.new
 
-student = repo.find(1)
+recipe0 = repo.find(1)
 
-student.id # =>  1
-student.name # =>  'David'
-student.cohort_name # =>  'April 2022'
+recipe0.id # =>  1
+recipe0.name # =>  'Feta Pasta'
+recipe0.rating # =>  '4'
 
-# Add more examples for each method
+recipe1 = repo.find(2)
+
+recipe1.id # =>  2
+recipe1.name # =>  'Stuffed Peppers'
+recipe1.rating # =>  '3'
 ```
 
 Encode this example as a test.
