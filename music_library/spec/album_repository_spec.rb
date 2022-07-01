@@ -34,10 +34,18 @@ describe AlbumRepository do
 
   it "creates a new album" do
     repo = AlbumRepository.new
-    repo.create("Blah", 2000, 9)
-    albums = repo.all
-    expect(albums.last.title).to eq "Blah"
-    expect(albums.last.release_year).to eq "2000"
+    
+    album = Album.new
+    album.title = "Trompe le Monde"
+    album.release_year = 1991
+    album.artist_id = 1
+    
+    repo.create(album)
+
+    all_albums = repo.all
+    expect(all_albums.last.title).to eq "Trompe le Monde"
+    expect(all_albums.last.release_year).to eq "1991"
+    expect(all_albums.length).to eq 4
   end
 
   it "deletes an album from table" do

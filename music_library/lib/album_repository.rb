@@ -28,8 +28,11 @@ class AlbumRepository
     album
   end
 
-  def create(title, release_year, artist_id)
-    DatabaseConnection.exec_params("INSERT INTO albums (title, release_year, artist_id) VALUES('Blah', 2000, 9);", [])
+  def create(album)
+    query = "INSERT INTO albums (title, release_year, artist_id) VALUES($1, $2, $3)"
+    params = [album.title, album.release_year, album.artist_id]
+
+    DatabaseConnection.exec_params(query, params)
   end
 
   def delete(id)
