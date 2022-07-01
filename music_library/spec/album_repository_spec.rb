@@ -22,11 +22,14 @@ describe AlbumRepository do
     expect(albums.first.artist_id).to eq "1"
   end
 
-  it "gets a single album with reference to its id" do
+  it "returns a single album when its is referenced" do
     repo = AlbumRepository.new
-    album = repo.find(3)
-    expect(album.title).to eq "The English Riviera"
-    expect(album.release_year).to eq "2011"
+    album0 = repo.find(3)
+    album1 = repo.find(1)
+    expect(album0.title).to eq "The English Riviera"
+    expect(album0.release_year).to eq "2011"
+    expect(album1.title).to eq "Doolittle"
+    expect(album1.release_year).to eq "1989"
   end
 
   it "creates a new album" do

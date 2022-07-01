@@ -60,12 +60,12 @@ Usually, the Model class name will be the capitalised table name (single instead
 
 # Model class
 # (in lib/student.rb)
-class Student
+class Book
 end
 
 # Repository class
 # (in lib/student_repository.rb)
-class StudentRepository
+class BookRepository
 end
 ```
 
@@ -155,32 +155,19 @@ These examples will later be encoded as RSpec tests.
 # 1
 # Get all students
 
-repo = StudentRepository.new
+repo = BookRepository.new
 
-students = repo.all
+books = repo.all
 
-students.length # =>  2
+books.length # =>  2
 
-students[0].id # =>  1
-students[0].name # =>  'David'
-students[0].cohort_name # =>  'April 2022'
+books.first.id # =>  1
+books.first.title # =>  'Nineteen Eighty-Four'
+books.first.author_name # =>  'George Orwell'
 
-students[1].id # =>  2
-students[1].name # =>  'Anna'
-students[1].cohort_name # =>  'May 2022'
-
-# 2
-# Get a single student
-
-repo = StudentRepository.new
-
-student = repo.find(1)
-
-student.id # =>  1
-student.name # =>  'David'
-student.cohort_name # =>  'April 2022'
-
-# Add more examples for each method
+books.last.id # =>  2
+books.last.title # =>  'Emma'
+books.last.author_name # =>  'Jane Austen'
 ```
 
 Encode this example as a test.

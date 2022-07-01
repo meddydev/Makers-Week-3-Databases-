@@ -18,7 +18,7 @@ class AlbumRepository
   end
 
   def find(id)
-    result_set = DatabaseConnection.exec_params("SELECT * FROM albums WHERE id = #{id};", [])
+    result_set = DatabaseConnection.exec_params("SELECT * FROM albums WHERE id = $1;", [id])
     record = result_set[0]
     album = Album.new
     album.id = record["id"]
