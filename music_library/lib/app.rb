@@ -13,9 +13,7 @@ class Application
 
   def run
     @io.puts "Welcome to the music library manager!"
-    @io.puts "What would you like to do?
-    1 - List all albums
-    2 - List all artists"
+    @io.puts "What would you like to do?\n1 - List all albums\n2 - List all artists"
     @io.puts "Enter your choice:"
     choice = @io.gets.chomp
     if choice == "1"

@@ -14,7 +14,7 @@ describe Application do
   it "asks user for input and returns a list of albums (for input of 1)" do
     io = double(:io)
     expect(io).to receive(:puts).with("Welcome to the music library manager!").ordered
-    expect(io).to receive(:puts).with("What would you like to do?\n    1 - List all albums\n    2 - List all artists").ordered
+    expect(io).to receive(:puts).with("What would you like to do?\n1 - List all albums\n2 - List all artists").ordered
     expect(io).to receive(:puts).with("Enter your choice:").ordered
     expect(io).to receive(:gets).and_return("1")
     expect(io).to receive(:puts).with("Here is the list of albums:")
@@ -31,7 +31,7 @@ describe Application do
   it "asks user for input and returns a list of artists (for input of 2)" do
     io = double(:io)
     expect(io).to receive(:puts).with("Welcome to the music library manager!").ordered
-    expect(io).to receive(:puts).with("What would you like to do?\n    1 - List all albums\n    2 - List all artists").ordered
+    expect(io).to receive(:puts).with("What would you like to do?\n1 - List all albums\n2 - List all artists").ordered
     expect(io).to receive(:puts).with("Enter your choice:").ordered
     expect(io).to receive(:gets).and_return("2")
     expect(io).to receive(:puts).with("Here is the list of artists:")
